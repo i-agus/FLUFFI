@@ -209,29 +209,33 @@ const AdminDashboard = () => {
                 </tr>
               </thead>
               <tbody>
-                {applications.length === 0 ? (
+                {(Array.isArray(applications) && applications.length > 0) ? (
+                  applications
+                    .slice()
+                    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+                    .slice(0, 2)
+                    .map(app => (
+                      <tr key={app._id}>
+                        <td>{app.petId?.name || 'Unknown Pet'}</td>
+                        <td>{app.userId}</td>
+                        <td>
+                          <span className={`status-badge ${app.status.toLowerCase()}`}>
+                            {app.status}
+                          </span>
+                        </td>
+                        <td>{new Date(app.createdAt).toLocaleDateString()}</td>
+                      </tr>
+                    ))
+                ) : (
                   <tr>
                     <td colSpan="4" className="admin-dashboard-empty-message">No applications received yet.</td>
                   </tr>
-                ) : (
-                  applications.slice(0, 5).map(app => (
-                    <tr key={app._id}>
-                      <td>{app.petId?.name || 'Unknown Pet'}</td>
-                      <td>{app.userId}</td>
-                      <td>
-                        <span className={`status-badge ${app.status.toLowerCase()}`}>
-                          {app.status}
-                        </span>
-                      </td>
-                      <td>{new Date(app.createdAt).toLocaleDateString()}</td>
-                    </tr>
-                  ))
                 )}
               </tbody>
             </table>
-            {applications.length > 5 && (
+            {applications.length > 2 && (
               <p className="admin-dashboard-view-more">
-                Displaying 5 of {applications.length} applications
+                Displaying 2 of {applications.length} applications
               </p>
             )}
           </div>

@@ -5,7 +5,7 @@ import ShelterCard from '../components/ShelterCard';
 import { Link } from 'react-router-dom';
 
 const ShelterList = () => {
-  const { shelters, loading, error } = useContext(DataContext);
+  const { shelters, loading, error, pets } = useContext(DataContext);
   const [searchTerm, setSearchTerm] = useState('');
 
   // Filter shelters based on search term
@@ -60,9 +60,14 @@ const ShelterList = () => {
           </p>
           
           <div style={styles.shelterGrid}>
-            {filteredShelters.map(shelter => (
-              <ShelterCard key={shelter._id} shelter={shelter} />
-            ))}
+            {filteredShelters.map(shelter => {
+              const totalPets = pets.filter(
+                pet => String(pet.shelterId) === String(shelter._id)
+              );
+              return (
+                <ShelterCard key={shelter._id} shelter={shelter} petCount={totalPets.length} />
+              );
+            })}
           </div>
         </>
       )}

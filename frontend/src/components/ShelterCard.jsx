@@ -2,19 +2,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ShelterCard = ({ shelter }) => {
-  const petCount = shelter.pets?.length || 0;
-  
+const ShelterCard = ({ shelter, petCount = 0, children }) => {
   return (
     <div style={styles.card}>
       <div style={styles.imageContainer}>
         <img 
-          src={shelter.image || '/images/shelters/default_shelter.jpg'} 
+          src={shelter.image || '/images/shelters/default_shelter.jpeg'} 
           alt={shelter.name}
           style={styles.image}
           onError={(e) => {
             e.target.onerror = null;
-            e.target.src = '/images/shelters/default_shelter.jpg';
+            e.target.src = '/images/shelters/default_shelter.jpeg';
           }}
         />
       </div>
@@ -24,7 +22,6 @@ const ShelterCard = ({ shelter }) => {
         
         <div style={styles.details}>
           <p style={styles.location}>{shelter.address}</p>
-          <p style={styles.petCount}>{petCount} {petCount === 1 ? 'pet' : 'pets'} available</p>
         </div>
         
         <p style={styles.description}>
@@ -39,6 +36,7 @@ const ShelterCard = ({ shelter }) => {
           View Details
         </Link>
       </div>
+      {children}
     </div>
   );
 };
@@ -83,12 +81,6 @@ const styles = {
     color: '#666',
     fontSize: '0.9rem',
     margin: '0 0 0.25rem 0',
-  },
-  petCount: {
-    color: '#0cc0df',
-    fontSize: '0.9rem',
-    fontWeight: 'bold',
-    margin: 0,
   },
   description: {
     color: '#666',

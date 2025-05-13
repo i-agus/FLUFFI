@@ -1,7 +1,8 @@
 // src/pages/ShelterDetail.jsx
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { AuthContext } from '../context/AuthContext';
 
 const ShelterDetail = () => {
   const { id } = useParams();
@@ -9,6 +10,13 @@ const ShelterDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
+  const { user } = useContext(AuthContext);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedPet, setSelectedPet] = useState(null);
+  const [adoptMsg, setAdoptMsg] = useState('');
+  const [adoptError, setAdoptError] = useState('');
+  const [adoptSuccess, setAdoptSuccess] = useState('');
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
 
   useEffect(() => {
     const fetchShelter = async () => {
@@ -67,6 +75,22 @@ const ShelterDetail = () => {
     );
   }
 
+  const handleAdoptClick = (pet) => {
+    if (!user) {
+      setShowLoginPopup(true);
+      setTimeout(() => {
+        setShowLoginPopup(false);
+        navigate('/login');
+      }, 1500);
+      return;
+    }
+    setSelectedPet(pet);
+    setShowModal(true);
+    setAdoptMsg('');
+    setAdoptError('');
+    setAdoptSuccess('');
+  };
+
   return (
     <div style={styles.container}>
       <div style={styles.navigation}>
@@ -114,12 +138,12 @@ const ShelterDetail = () => {
             {shelter.pets.map(pet => (
               <div key={pet._id} style={styles.petCard}>
                 <img 
-                  src={pet.image || '/images/pets/default_pet.jpg'} 
+                  src={pet.image || '/images/pets/default_pet.jpeg'} 
                   alt={pet.name}
                   style={styles.petImage}
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = '/images/pets/default_pet.jpg';
+                    e.target.src = '/images/pets/default_pet.jpeg';
                   }}
                 />
                 <div style={styles.petInfo}>
@@ -130,7 +154,12 @@ const ShelterDetail = () => {
                   <p><strong>Status:</strong> <span style={getStatusStyle(pet.status)}>{pet.status}</span></p>
                   <p style={styles.petDescription}>{pet.description}</p>
                   {pet.status === 'Available' && (
-                    <button style={styles.adoptButton}>Apply to Adopt</button>
+                    <button
+                      className="view-shelter-btn"
+                      onClick={() => handleAdoptClick(pet)}
+                    >
+                      Adopt Now
+                    </button>
                   )}
                 </div>
               </div>
@@ -138,6 +167,67 @@ const ShelterDetail = () => {
           </div>
         )}
       </div>
+
+      {showModal && (
+        <div className="adopt-modal">
+          <div className="adopt-modal-content">
+            <h3>Request Adoption for {selectedPet.name}</h3>
+            <form
+              onSubmit={async (e) => {
+                e.preventDefault();
+                setAdoptError('');
+                setAdoptSuccess('');
+                try {
+                  const res = await fetch('http://localhost:5000/api/applications', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json',
+                      Authorization: `Bearer ${user.token}`,
+                    },
+                    body: JSON.stringify({ petId: selectedPet._id, message: adoptMsg }),
+                  });
+                  if (!res.ok) throw new Error('Failed to submit application');
+                  setAdoptSuccess('Adoption request sent!');
+                  setShowModal(false);
+                } catch (err) {
+                  setAdoptError('Could not send request.');
+                }
+              }}
+            >
+              <textarea
+                placeholder="Why do you want to adopt?"
+                value={adoptMsg}
+                onChange={e => setAdoptMsg(e.target.value)}
+                required
+                style={{ width: '100%', minHeight: '60px', borderRadius: '8px', border: '1.5px solid #0cc0df', marginBottom: '1rem', padding: '0.5rem' }}
+              />
+              <button type="submit" className="adopt-modal-btn">Send Request</button>
+              <button type="button" className="adopt-modal-cancel" onClick={() => setShowModal(false)}>Cancel</button>
+            </form>
+            {adoptError && <div className="adopt-modal-error">{adoptError}</div>}
+            {adoptSuccess && <div className="adopt-modal-success">{adoptSuccess}</div>}
+          </div>
+        </div>
+      )}
+
+      {showLoginPopup && (
+        <div style={{
+          position: 'fixed',
+          bottom: 30,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          background: '#0cc0df',
+          color: '#fff',
+          padding: '1rem 2rem',
+          borderRadius: '8px',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+          zIndex: 9999,
+          fontWeight: 'bold',
+          fontSize: '1.1rem'
+        }}>
+          Please login first to adopt a pet.
+        </div>
+      )}
     </div>
   );
 };

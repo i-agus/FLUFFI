@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './AllPets.css'; // Optional styling file
 import { AuthContext } from '../context/AuthContext';
 
@@ -13,6 +13,8 @@ const AllPets = () => {
   const [adoptMsg, setAdoptMsg] = useState('');
   const [adoptError, setAdoptError] = useState('');
   const [adoptSuccess, setAdoptSuccess] = useState('');
+  const [showLoginPopup, setShowLoginPopup] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchPets = async () => {
@@ -36,7 +38,11 @@ const AllPets = () => {
 
   const handleAdoptClick = (pet) => {
     if (!user) {
-      window.location.href = '/login';
+      setShowLoginPopup(true);
+      setTimeout(() => {
+        setShowLoginPopup(false);
+        navigate('/login');
+      }, 1500);
       return;
     }
     setSelectedPet(pet);
@@ -139,6 +145,24 @@ const AllPets = () => {
             {adoptError && <div className="adopt-modal-error">{adoptError}</div>}
             {adoptSuccess && <div className="adopt-modal-success">{adoptSuccess}</div>}
           </div>
+        </div>
+      )}
+      {showLoginPopup && (
+        <div style={{
+          position: 'fixed',
+          bottom: 30,
+          left: '50%',
+          transform: 'translateX(-50%)',
+          background: '#0cc0df',
+          color: '#fff',
+          padding: '1rem 2rem',
+          borderRadius: '8px',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+          zIndex: 9999,
+          fontWeight: 'bold',
+          fontSize: '1.1rem'
+        }}>
+          Please login first to adopt a pet.
         </div>
       )}
     </div>
