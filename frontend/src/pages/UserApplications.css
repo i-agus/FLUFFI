@@ -1,0 +1,40 @@
+.applications-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(12,192,223,0.08);
+  padding: 2.5rem 2rem;
+  border: 1.5px solid #0cc0df;
+}
+
+.applications-container h2 {
+  color: #0cc0df;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.applications-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.applications-table th, .applications-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.applications-table th {
+  background: #e6fafd;
+  color: #0cc0df;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.applications-table tr:last-child td {
+  border-bottom: none;
+}
