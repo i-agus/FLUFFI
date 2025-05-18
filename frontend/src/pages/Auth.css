@@ -3,18 +3,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e6fafd;
+  background: #fff5f7;
 }
 
 .auth-card {
   background: #fff;
   padding: 2.5rem 2rem;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(12,192,223,0.08);
+  box-shadow: 0 4px 24px rgba(224, 94, 124, 0.08);
   max-width: 400px;
   width: 100%;
   text-align: center;
-  border: 1.5px solid #0cc0df;
+  border: 1.5px solid #e05e7c;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +22,7 @@
 
 .auth-card h2 {
   margin-bottom: 1.5rem;
-  color: #0cc0df;
+  color: #e05e7c;
   font-size: 2rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -31,7 +31,7 @@
 .auth-card input {
   padding: 0.9rem 1rem;
   border-radius: 8px;
-  border: 1.5px solid #0cc0df;
+  border: 1.5px solid #e05e7c;
   font-size: 1rem;
   background: #f9f9f9;
   color: #222;
@@ -50,7 +50,7 @@
 }
 
 .auth-btn {
-  background: linear-gradient(90deg, #0cc0df 60%, #099ab3 100%);
+  background: linear-gradient(90deg, #e05e7c 60%, #d14d6b 100%);
   color: #fff;
   border: none;
   padding: 0.9rem 0;
@@ -61,7 +61,7 @@
   margin-top: 0.5rem;
   width: 100%;
   transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(12,192,223,0.08);
+  box-shadow: 0 2px 8px rgba(224, 94, 124, 0.08);
   letter-spacing: 1px;
 }
 
@@ -73,7 +73,7 @@
 }
 
 .auth-link a {
-  color: #0cc0df;
+  color: #e05e7c;
   text-decoration: none;
   font-size: 0.9rem;
 }

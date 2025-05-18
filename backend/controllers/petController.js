@@ -1,4 +1,6 @@
 const Pet = require('../models/Pet');
+const fs = require('fs');
+const path = require('path');
 
 exports.getAllPets = async (req, res) => {
   try {
@@ -44,5 +46,37 @@ exports.deletePet = async (req, res) => {
     res.json({ message: 'Pet deleted successfully' });
   } catch (err) {
     res.status(400).json({ error: err.message });
+  }
+};
+
+exports.addPet = async (req, res) => {
+  try {
+    // Save pet to MongoDB
+    const newPet = await Pet.create(req.body);
+
+    // Prepare the Python code to append
+    const petPython = `
+pets.insert_one({
+    "name": "${newPet.name}",
+    "age": ${newPet.age},
+    "breed": "${newPet.breed}",
+    "type": "${newPet.type}",
+    "gender": "${newPet.gender}",
+    "status": "${newPet.status}",
+    "description": "${newPet.description}",
+    "image": "${newPet.image}",
+    "shelterId": "${newPet.shelterId}"
+})
+`;
+
+    // Path to data.py
+    const dataPyPath = path.join(__dirname, '../data.py');
+
+    // Append to data.py
+    fs.appendFileSync(dataPyPath, petPython);
+
+    res.status(201).json(newPet);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
   }
 };

@@ -169,9 +169,28 @@ const ShelterDetail = () => {
       </div>
 
       {showModal && (
-        <div className="adopt-modal">
-          <div className="adopt-modal-content">
-            <h3>Request Adoption for {selectedPet.name}</h3>
+        <div className="adopt-modal" style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundColor: 'rgba(224, 94, 124, 0.2)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          zIndex: 1000
+        }}>
+          <div className="adopt-modal-content" style={{
+            background: '#fff',
+            padding: '2rem',
+            borderRadius: '8px',
+            width: '90%',
+            maxWidth: '500px',
+            boxShadow: '0 4px 16px rgba(224, 94, 124, 0.15)',
+            border: '1.5px solid #e05e7c'
+          }}>
+            <h3 style={{ color: '#e05e7c', marginTop: 0 }}>Request Adoption for {selectedPet.name}</h3>
             <form
               onSubmit={async (e) => {
                 e.preventDefault();
@@ -199,13 +218,79 @@ const ShelterDetail = () => {
                 value={adoptMsg}
                 onChange={e => setAdoptMsg(e.target.value)}
                 required
-                style={{ width: '100%', minHeight: '60px', borderRadius: '8px', border: '1.5px solid #0cc0df', marginBottom: '1rem', padding: '0.5rem' }}
+                style={{
+                  width: '100%',
+                  minHeight: '120px',
+                  borderRadius: '8px',
+                  border: '1.5px solid #e05e7c',
+                  marginBottom: '1rem',
+                  padding: '0.75rem',
+                  fontSize: '1rem',
+                  resize: 'vertical'
+                }}
               />
-              <button type="submit" className="adopt-modal-btn">Send Request</button>
-              <button type="button" className="adopt-modal-cancel" onClick={() => setShowModal(false)}>Cancel</button>
+              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  style={{
+                    padding: '0.75rem 1.5rem',
+                    backgroundColor: '#fff',
+                    color: '#e05e7c',
+                    border: '1.5px solid #e05e7c',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontSize: '1rem',
+                    fontWeight: 'bold',
+                    transition: 'all 0.2s'
+                  }}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  style={{
+                    padding: '0.75rem 1.5rem',
+                    backgroundColor: '#e05e7c',
+                    color: '#fff',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontSize: '1rem',
+                    fontWeight: 'bold',
+                    transition: 'all 0.2s'
+                  }}
+                >
+                  Send Request
+                </button>
+              </div>
             </form>
-            {adoptError && <div className="adopt-modal-error">{adoptError}</div>}
-            {adoptSuccess && <div className="adopt-modal-success">{adoptSuccess}</div>}
+            {adoptError && (
+              <div style={{
+                marginTop: '1rem',
+                padding: '0.75rem',
+                backgroundColor: '#fff5f7',
+                color: '#e05e7c',
+                borderRadius: '4px',
+                border: '1.5px solid #e05e7c',
+                fontSize: '0.9rem'
+              }}>
+                {adoptError}
+              </div>
+            )}
+            {adoptSuccess && (
+              <div style={{
+                marginTop: '1rem',
+                padding: '0.75rem',
+                backgroundColor: '#fff5f7',
+                color: '#e05e7c',
+                borderRadius: '4px',
+                border: '1.5px solid #e05e7c',
+                fontSize: '0.9rem'
+              }}>
+                {adoptSuccess}
+              </div>
+            )}
           </div>
         </div>
       )}
@@ -216,14 +301,16 @@ const ShelterDetail = () => {
           bottom: 30,
           left: '50%',
           transform: 'translateX(-50%)',
-          background: '#0cc0df',
+          background: '#e05e7c',
           color: '#fff',
           padding: '1rem 2rem',
           borderRadius: '8px',
-          boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+          boxShadow: '0 4px 16px rgba(224, 94, 124, 0.2)',
           zIndex: 9999,
           fontWeight: 'bold',
-          fontSize: '1.1rem'
+          fontSize: '1.1rem',
+          border: '1.5px solid #d14d6b',
+          animation: 'fadeInUp 0.3s ease-out'
         }}>
           Please login first to adopt a pet.
         </div>
@@ -236,9 +323,9 @@ const ShelterDetail = () => {
 const getStatusStyle = (status) => {
   switch (status) {
     case 'Available':
-      return { color: '#0cc0df', fontWeight: 'bold' };
+      return { color: '#e05e7c', fontWeight: 'bold' };
     case 'Pending':
-      return { color: '#099ab3', fontWeight: 'bold' };
+      return { color: '#d14d6b', fontWeight: 'bold' };
     case 'Adopted':
       return { color: '#222', fontWeight: 'bold' };
     default:
@@ -251,15 +338,20 @@ const styles = {
     maxWidth: '1200px',
     margin: '0 auto',
     padding: '2rem 1rem',
-    background: '#e6fafd',
+    background: '#fff5f7',
   },
   navigation: {
     marginBottom: '2rem',
   },
   backLink: {
-    color: '#0cc0df',
+    color: '#e05e7c',
     textDecoration: 'none',
     fontSize: '1rem',
+    fontWeight: '500',
+    transition: 'color 0.2s',
+    ':hover': {
+      color: '#d14d6b'
+    }
   },
   shelterHeader: {
     display: 'flex',
@@ -273,34 +365,39 @@ const styles = {
   shelterImage: {
     width: '100%',
     borderRadius: '8px',
-    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+    boxShadow: '0 4px 8px rgba(224, 94, 124, 0.15)',
+    border: '1.5px solid #e05e7c',
   },
   shelterInfo: {
     flex: '1 1 500px',
   },
   shelterName: {
-    color: '#333',
+    color: '#e05e7c',
     marginTop: 0,
     marginBottom: '1rem',
     fontSize: '2.5rem',
+    fontWeight: '700',
   },
   contactInfo: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#fff',
     padding: '1rem',
     borderRadius: '8px',
     marginBottom: '1.5rem',
+    border: '1.5px solid #e05e7c',
   },
   shelterDescription: {
     lineHeight: '1.6',
+    color: '#444',
   },
   petsSection: {
     marginTop: '2rem',
   },
   petsSectionTitle: {
     textAlign: 'center',
-    color: '#333',
+    color: '#e05e7c',
     marginBottom: '2rem',
     fontSize: '2rem',
+    fontWeight: '700',
   },
   petsList: {
     display: 'flex',
@@ -312,9 +409,14 @@ const styles = {
     backgroundColor: '#fff',
     borderRadius: '8px',
     overflow: 'hidden',
-    boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
-    border: '1px solid #eaeaea',
+    boxShadow: '0 2px 8px rgba(224, 94, 124, 0.08)',
+    border: '1.5px solid #e05e7c',
     flexWrap: 'wrap',
+    transition: 'transform 0.2s, box-shadow 0.2s',
+    ':hover': {
+      transform: 'translateY(-2px)',
+      boxShadow: '0 4px 16px rgba(224, 94, 124, 0.15)',
+    }
   },
   petImage: {
     width: '300px',
@@ -328,8 +430,9 @@ const styles = {
   },
   petName: {
     margin: '0 0 1rem 0',
-    color: '#333',
+    color: '#e05e7c',
     fontSize: '1.5rem',
+    fontWeight: '600',
   },
   petDescription: {
     margin: '1rem 0',
@@ -337,7 +440,7 @@ const styles = {
     lineHeight: '1.5',
   },
   adoptButton: {
-    backgroundColor: '#0cc0df',
+    backgroundColor: '#e05e7c',
     color: 'white',
     border: 'none',
     padding: '0.5rem 1rem',
@@ -347,13 +450,19 @@ const styles = {
     fontWeight: 'bold',
     marginTop: '1rem',
     letterSpacing: '1px',
-    transition: 'background 0.2s',
+    transition: 'all 0.2s',
+    ':hover': {
+      backgroundColor: '#d14d6b',
+      transform: 'translateY(-2px)',
+    }
   },
   noPets: {
     textAlign: 'center',
     padding: '2rem',
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#fff',
     borderRadius: '8px',
+    border: '1.5px solid #e05e7c',
+    color: '#e05e7c',
   },
   loadingContainer: {
     display: 'flex',
@@ -364,7 +473,7 @@ const styles = {
   },
   loadingSpinner: {
     border: '4px solid #f3f3f3',
-    borderTop: '4px solid #0cc0df',
+    borderTop: '4px solid #e05e7c',
     borderRadius: '50%',
     width: '40px',
     height: '40px',
@@ -373,24 +482,25 @@ const styles = {
   errorContainer: {
     textAlign: 'center',
     padding: '2rem',
-    backgroundColor: '#e6fafd',
+    backgroundColor: '#fff5f7',
     borderRadius: '8px',
-    color: '#0cc0df',
+    color: '#e05e7c',
     maxWidth: '600px',
     margin: '3rem auto',
-    border: '1.5px solid #0cc0df',
+    border: '1.5px solid #e05e7c',
   },
   notFoundContainer: {
     textAlign: 'center',
     padding: '2rem',
-    backgroundColor: '#e6fafd',
+    backgroundColor: '#fff5f7',
     borderRadius: '8px',
     maxWidth: '600px',
     margin: '3rem auto',
-    border: '1.5px solid #0cc0df',
+    border: '1.5px solid #e05e7c',
+    color: '#e05e7c',
   },
   button: {
-    backgroundColor: '#0cc0df',
+    backgroundColor: '#e05e7c',
     color: 'white',
     border: 'none',
     padding: '0.5rem 1rem',
@@ -400,7 +510,11 @@ const styles = {
     marginTop: '1rem',
     fontWeight: 'bold',
     letterSpacing: '1px',
-    transition: 'background 0.2s',
+    transition: 'all 0.2s',
+    ':hover': {
+      backgroundColor: '#d14d6b',
+      transform: 'translateY(-2px)',
+    }
   },
 };
 

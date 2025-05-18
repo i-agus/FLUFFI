@@ -1,0 +1,223 @@
+.shelters-container {
+  min-height: 100vh;
+  padding: 60px 20px;
+  background: #fff5f7;
+}
+
+.shelters-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.shelters-title {
+  font-size: 2.8rem;
+  color: #e05e7c;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+
+.shelters-subtitle {
+  font-size: 1.2rem;
+  color: #444;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.shelters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.shelter-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(224, 94, 124, 0.08);
+  border: 1.5px solid #e05e7c;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.shelter-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(224, 94, 124, 0.15);
+}
+
+.shelter-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.shelter-info {
+  padding: 1.5rem;
+}
+
+.shelter-name {
+  font-size: 1.4rem;
+  color: #e05e7c;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.shelter-details {
+  color: #444;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.shelter-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(224, 94, 124, 0.2);
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.contact-item i {
+  color: #e05e7c;
+  font-size: 1.1rem;
+}
+
+.view-pets-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #e05e7c 60%, #d14d6b 100%);
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(224, 94, 124, 0.15);
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+  text-align: center;
+}
+
+.view-pets-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(224, 94, 124, 0.2);
+}
+
+.shelter-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.shelter-modal-content {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(224, 94, 124, 0.2);
+  border: 1.5px solid #e05e7c;
+}
+
+.shelter-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.shelter-modal-title {
+  font-size: 1.8rem;
+  color: #e05e7c;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  color: #e05e7c;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: transform 0.2s;
+}
+
+.close-modal:hover {
+  transform: scale(1.1);
+}
+
+.shelter-modal-pets {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.modal-pet-card {
+  background: #fff5f7;
+  border-radius: 12px;
+  padding: 1rem;
+  border: 1.5px solid #e05e7c;
+  transition: transform 0.2s;
+}
+
+.modal-pet-card:hover {
+  transform: translateY(-3px);
+}
+
+.modal-pet-name {
+  color: #e05e7c;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.modal-pet-details {
+  color: #444;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .shelters-title {
+    font-size: 2.2rem;
+  }
+  
+  .shelters-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .shelters-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .shelter-modal-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+  
+  .shelter-modal-title {
+    font-size: 1.5rem;
+  }
+} 

@@ -35,11 +35,11 @@
   font-weight: bold;
   letter-spacing: 1px;
   transition: background 0.2s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to button for better visibility */
+  box-shadow: 0 4px 8px rgba(224, 94, 124, 0.2);
 }
 
 .enter-btn:hover {
-  background-color: #099ab3;
+  background-color: #d14d6b;
 }
 
 body {

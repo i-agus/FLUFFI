@@ -48,10 +48,14 @@ const styles = {
     width: '300px',
     borderRadius: '8px',
     overflow: 'hidden',
-    boxShadow: '0 2px 5px rgba(0,0,0,0.1)',
+    boxShadow: '0 2px 8px rgba(224, 94, 124, 0.08)',
     backgroundColor: '#fff',
-    border: '1px solid #eaeaea',
+    border: '1.5px solid #e05e7c',
     transition: 'transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out',
+    ':hover': {
+      transform: 'translateY(-2px)',
+      boxShadow: '0 4px 16px rgba(224, 94, 124, 0.15)',
+    }
   },
   imageContainer: {
     height: '180px',
@@ -90,7 +94,7 @@ const styles = {
     flex: 1,
   },
   viewButton: {
-    backgroundColor: '#0cc0df',
+    backgroundColor: '#e05e7c',
     color: 'white',
     textDecoration: 'none',
     padding: '0.5rem 1rem',
@@ -100,7 +104,11 @@ const styles = {
     textAlign: 'center',
     alignSelf: 'flex-start',
     letterSpacing: '1px',
-    transition: 'background 0.2s',
+    transition: 'all 0.2s',
+    ':hover': {
+      backgroundColor: '#d14d6b',
+      transform: 'translateY(-2px)',
+    }
   },
 };
 

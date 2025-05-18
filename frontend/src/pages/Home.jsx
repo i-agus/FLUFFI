@@ -175,7 +175,7 @@ const styles = {
     gap: '1rem',
   },
   primaryButton: {
-    backgroundColor: '#0cc0df',
+    backgroundColor: '#e05e7c',
     color: 'white',
     textDecoration: 'none',
     padding: '0.75rem 1.5rem',
@@ -208,11 +208,11 @@ const styles = {
   statNumber: {
     fontSize: '2.5rem',
     fontWeight: 'bold',
-    color: '#0cc0df',
+    color: '#e05e7c',
   },
   statLabel: {
     marginTop: '0.5rem',
-    color: '#555',
+    color: '#e05e7c',
     fontSize: '1rem',
   },
   section: {
@@ -243,7 +243,7 @@ const styles = {
     justifyContent: 'center',
     width: '50px',
     height: '50px',
-    backgroundColor: '#0cc0df',
+    backgroundColor: '#e05e7c',
     color: 'white',
     borderRadius: '50%',
     fontSize: '1.5rem',
@@ -291,7 +291,7 @@ const styles = {
     display: 'inline-block',
     marginTop: '1rem',
     textDecoration: 'none',
-    backgroundColor: '#0cc0df',
+    backgroundColor: '#e05e7c',
     color: 'white',
     padding: '0.5rem 1rem',
     borderRadius: '4px',

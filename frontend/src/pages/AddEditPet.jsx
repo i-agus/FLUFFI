@@ -104,7 +104,13 @@ const AddEditPet = () => {
     <div style={styles.container}>
       <div style={styles.header}>
         <h1 style={styles.title}>{id ? 'Edit Pet' : 'Add New Pet'}</h1>
-        <Link to="/admin" style={styles.backButton}>
+        <Link to="/admin" style={{
+          ...styles.backButton,
+          ':hover': {
+            backgroundColor: '#e05e7c',
+            color: '#fff'
+          }
+        }}>
           Back to Dashboard
         </Link>
       </div>
@@ -269,14 +275,26 @@ const AddEditPet = () => {
           <button 
             type="button" 
             onClick={() => navigate('/admin')}
-            style={styles.cancelButton}
+            style={{
+              ...styles.cancelButton,
+              ':hover': {
+                backgroundColor: '#e05e7c',
+                color: '#fff'
+              }
+            }}
             disabled={loading}
           >
             Cancel
           </button>
           <button 
             type="submit"
-            style={styles.submitButton}
+            style={{
+              ...styles.submitButton,
+              ':hover': {
+                backgroundColor: '#d14d6b',
+                transform: 'translateY(-2px)'
+              }
+            }}
             disabled={loading || success}
           >
             {loading ? 'Saving...' : id ? 'Update Pet' : 'Create Pet'}
@@ -292,7 +310,7 @@ const styles = {
     maxWidth: '800px',
     margin: '0 auto',
     padding: '2rem 1rem',
-    background: '#e6fafd',
+    background: '#fff5f7',
   },
   header: {
     display: 'flex',
@@ -301,26 +319,27 @@ const styles = {
     marginBottom: '2rem',
   },
   title: {
-    color: '#3a4756',
+    color: '#e05e7c',
     margin: 0,
     fontSize: '1.75rem',
   },
   backButton: {
     padding: '0.5rem 1rem',
-    backgroundColor: '#f7fafc',
-    color: '#4a5568',
-    border: '1px solid #e2e8f0',
+    backgroundColor: '#fff',
+    color: '#e05e7c',
+    border: '1.5px solid #e05e7c',
     borderRadius: '4px',
     textDecoration: 'none',
     fontSize: '0.875rem',
     fontWeight: '500',
+    transition: 'all 0.2s',
   },
   form: {
     backgroundColor: '#fff',
     padding: '1.5rem',
     borderRadius: '8px',
-    boxShadow: '0 2px 8px rgba(0, 0, 0, 0.05)',
-    border: '1px solid #e2e8f0',
+    boxShadow: '0 2px 8px rgba(224, 94, 124, 0.08)',
+    border: '1.5px solid #e05e7c',
   },
   formGrid: {
     display: 'grid',
@@ -333,7 +352,7 @@ const styles = {
   label: {
     display: 'block',
     marginBottom: '0.5rem',
-    color: '#4a5568',
+    color: '#e05e7c',
     fontSize: '0.875rem',
     fontWeight: '500',
   },
@@ -341,26 +360,29 @@ const styles = {
     width: '100%',
     padding: '0.5rem 0.75rem',
     fontSize: '1rem',
-    border: '1px solid #e2e8f0',
+    border: '1.5px solid #e05e7c',
     borderRadius: '4px',
-    backgroundColor: '#f7fafc',
+    backgroundColor: '#fff',
+    transition: 'border 0.2s',
   },
   select: {
     width: '100%',
     padding: '0.5rem 0.75rem',
     fontSize: '1rem',
-    border: '1px solid #e2e8f0',
+    border: '1.5px solid #e05e7c',
     borderRadius: '4px',
-    backgroundColor: '#f7fafc',
+    backgroundColor: '#fff',
+    transition: 'border 0.2s',
   },
   textarea: {
     width: '100%',
     padding: '0.5rem 0.75rem',
     fontSize: '1rem',
-    border: '1px solid #e2e8f0',
+    border: '1.5px solid #e05e7c',
     borderRadius: '4px',
-    backgroundColor: '#f7fafc',
+    backgroundColor: '#fff',
     fontFamily: 'inherit',
+    transition: 'border 0.2s',
   },
   buttonGroup: {
     display: 'flex',
@@ -368,27 +390,27 @@ const styles = {
     gap: '1rem',
     marginTop: '1rem',
   },
-  cancelButton: {
-    padding: '0.5rem 1rem',
-    backgroundColor: '#f7fafc',
-    color: '#4a5568',
-    border: '1px solid #e2e8f0',
-    borderRadius: '4px',
-    cursor: 'pointer',
-    fontSize: '0.875rem',
-    fontWeight: '500',
-  },
   submitButton: {
     padding: '0.5rem 1rem',
-    backgroundColor: '#0cc0df',
-    color: 'white',
+    backgroundColor: '#e05e7c',
+    color: '#fff',
     border: 'none',
     borderRadius: '4px',
     cursor: 'pointer',
     fontSize: '0.875rem',
     fontWeight: '500',
-    letterSpacing: '1px',
-    transition: 'background 0.2s',
+    transition: 'all 0.2s',
+  },
+  cancelButton: {
+    padding: '0.5rem 1rem',
+    backgroundColor: '#fff',
+    color: '#e05e7c',
+    border: '1.5px solid #e05e7c',
+    borderRadius: '4px',
+    cursor: 'pointer',
+    fontSize: '0.875rem',
+    fontWeight: '500',
+    transition: 'all 0.2s',
   },
   loadingContainer: {
     display: 'flex',

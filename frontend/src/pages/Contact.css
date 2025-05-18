@@ -1,7 +1,7 @@
 .contact-page {
   min-height: 100vh;
   padding: 60px 20px;
-  background: #e6fafd;
+  background: #fff5f7;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,10 +13,10 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  box-shadow: 0 8px 24px rgba(12,192,223,0.08);
+  box-shadow: 0 8px 24px rgba(224, 94, 124, 0.08);
   border-radius: 20px;
   overflow: hidden;
-  border: 1.5px solid #0cc0df;
+  border: 1.5px solid #e05e7c;
 }
 
 /* Left Panel */
@@ -30,7 +30,7 @@
 .contact-info h2 {
   font-size: 2rem;
   margin-bottom: 20px;
-  color: #0cc0df;
+  color: #e05e7c;
   font-weight: bold;
   letter-spacing: 1px;
 }
@@ -69,7 +69,7 @@
   width: 40px;
   height: 40px;
   object-fit: contain;
-  border: 2px solid #0cc0df;
+  border: 2px solid #e05e7c;
   border-radius: 8px;
   background: #fff;
   padding: 4px;
@@ -80,7 +80,7 @@
   flex: 1 1 400px;
   padding: 40px;
   background-color: #fff;
-  border-left: 1.5px solid #0cc0df;
+  border-left: 1.5px solid #e05e7c;
 }
 
 .contact-form form {
@@ -93,7 +93,7 @@
 .contact-form textarea {
   padding: 14px;
   border-radius: 10px;
-  border: 1.5px solid #0cc0df;
+  border: 1.5px solid #e05e7c;
   font-size: 1rem;
   transition: border 0.3s ease;
   background: #f9f9f9;
@@ -102,13 +102,13 @@
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #0cc0df;
+  border-color: #e05e7c;
   outline: none;
 }
 
 .contact-form button {
   padding: 14px;
-  background: #0cc0df;
+  background: #e05e7c;
   color: #fff;
   font-size: 1rem;
   border: none;
@@ -120,7 +120,7 @@
 }
 
 .contact-form button:hover {
-  background: #099ab3;
+  background: '#e05e7c';
   transform: scale(1.03);
 }
 
@@ -132,6 +132,6 @@
 
   .contact-form {
     border-left: none;
-    border-top: 1.5px solid #0cc0df;
+    border-top: 1.5px solid '#e05e7c';
   }
 }

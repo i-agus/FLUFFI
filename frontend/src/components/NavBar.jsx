@@ -95,12 +95,12 @@ const NavBar = () => {
 const styles = {
   navbar: {
     backgroundColor: '#fff',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.08)',
+    boxShadow: '0 2px 4px rgba(224, 94, 124, 0.08)',
     padding: '1rem 0',
     position: 'sticky',
     top: 0,
     zIndex: 1000,
-    borderBottom: '3px solid #0cc0df',
+    borderBottom: '3px solid #e05e7c',
   },
   navContainer: {
     display: 'flex',
@@ -113,7 +113,7 @@ const styles = {
   logo: {
     fontSize: '2rem',
     fontWeight: 'bold',
-    color: '#0cc0df',
+    color: '#e05e7c',
     textDecoration: 'none',
     display: 'flex',
     alignItems: 'center',
@@ -165,13 +165,13 @@ const styles = {
     }
   },
   activeLink: {
-    color: '#0cc0df',
+    color: '#e05e7c',
     fontWeight: 'bold',
-    borderBottom: '2px solid #0cc0df',
-    background: 'rgba(12,192,223,0.08)'
+    borderBottom: '2px solid #e05e7c',
+    background: 'rgba(224, 94, 124, 0.08)'
   },
   adminLink: {
-    backgroundColor: '#0cc0df',
+    backgroundColor: '#e05e7c',
     color: '#fff',
     '@media (max-width: 768px)': {
       width: '100%',

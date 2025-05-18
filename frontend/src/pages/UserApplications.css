@@ -3,13 +3,13 @@
   margin: 3rem auto;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(12,192,223,0.08);
+  box-shadow: 0 4px 24px rgba(224, 94, 124, 0.08);
   padding: 2.5rem 2rem;
-  border: 1.5px solid #0cc0df;
+  border: 1.5px solid #e05e7c;
 }
 
 .applications-container h2 {
-  color: #0cc0df;
+  color: #e05e7c;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2rem;
@@ -29,12 +29,16 @@
 }
 
 .applications-table th {
-  background: #e6fafd;
-  color: #0cc0df;
+  background: #fff5f7;
+  color: #e05e7c;
   font-weight: 700;
   letter-spacing: 1px;
 }
 
 .applications-table tr:last-child td {
   border-bottom: none;
+}
+
+.applications-table tr:hover {
+  background: #fff5f7;
 }

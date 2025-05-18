@@ -3,14 +3,14 @@
   margin: 3rem auto;
   background: #fff;
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(12,192,223,0.08);
+  box-shadow: 0 4px 24px rgba(224, 94, 124, 0.08);
   padding: 2.5rem 2rem;
-  border: 1.5px solid #0cc0df;
+  border: 1.5px solid #e05e7c;
   text-align: center;
 }
 
 .user-dashboard-container h2 {
-  color: #0cc0df;
+  color: #e05e7c;
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 2rem;
@@ -24,7 +24,7 @@
 }
 
 .user-dashboard-btn {
-  background: linear-gradient(90deg, #0cc0df 60%, #099ab3 100%);
+  background: linear-gradient(90deg, #e05e7c 60%, #d14d6b 100%);
   color: #fff;
   border: none;
   padding: 0.9rem 2rem;
@@ -34,9 +34,12 @@
   cursor: pointer;
   text-decoration: none;
   transition: background 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 8px rgba(12,192,223,0.08);
+  box-shadow: 0 2px 8px rgba(224, 94, 124, 0.08);
   letter-spacing: 1px;
 }
+
 .user-dashboard-btn:hover {
-  background: linear-gradient(90deg, #099ab3 60%, #0cc0df 100%);
+  background: linear-gradient(90deg, #d14d6b 60%, #e05e7c 100%);
+  box-shadow: 0 4px 16px rgba(224, 94, 124, 0.15);
+  transform: translateY(-2px);
 }

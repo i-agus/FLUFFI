@@ -80,6 +80,7 @@ const styles = {
     maxWidth: '1200px',
     margin: '0 auto',
     padding: '2rem 1rem',
+    background: '#fff5f7',
   },
   header: {
     display: 'flex',
@@ -89,7 +90,7 @@ const styles = {
     flexWrap: 'wrap',
   },
   title: {
-    color: '#333',
+    color: '#e05e7c',
     margin: '0',
     fontSize: '2rem',
   },
@@ -101,17 +102,23 @@ const styles = {
   searchInput: {
     padding: '0.5rem',
     borderRadius: '4px',
-    border: '1px solid #ccc',
+    border: '1.5px solid #e05e7c',
     fontSize: '1rem',
     width: '250px',
+    backgroundColor: '#fff',
   },
   homeButton: {
     padding: '0.5rem 1rem',
-    backgroundColor: '#333',
+    backgroundColor: '#e05e7c',
     color: 'white',
     textDecoration: 'none',
     borderRadius: '4px',
     fontWeight: 'bold',
+    transition: 'all 0.2s',
+    ':hover': {
+      backgroundColor: '#d14d6b',
+      transform: 'translateY(-2px)'
+    }
   },
   shelterGrid: {
     display: 'flex',
@@ -121,14 +128,17 @@ const styles = {
   },
   shelterCount: {
     textAlign: 'center',
-    color: '#666',
+    color: '#e05e7c',
     marginBottom: '1rem',
+    fontWeight: '500',
   },
   noShelters: {
     textAlign: 'center',
     padding: '3rem',
-    backgroundColor: '#f9f9f9',
+    backgroundColor: '#fff',
     borderRadius: '8px',
+    border: '1.5px solid #e05e7c',
+    color: '#e05e7c',
   },
   loadingContainer: {
     display: 'flex',
@@ -139,7 +149,7 @@ const styles = {
   },
   loadingSpinner: {
     border: '4px solid #f3f3f3',
-    borderTop: '4px solid #3498db',
+    borderTop: '4px solid #e05e7c',
     borderRadius: '50%',
     width: '40px',
     height: '40px',
@@ -148,11 +158,12 @@ const styles = {
   errorContainer: {
     textAlign: 'center',
     padding: '2rem',
-    backgroundColor: '#ffebee',
+    backgroundColor: '#fff5f7',
     borderRadius: '8px',
-    color: '#c62828',
+    color: '#e05e7c',
     maxWidth: '600px',
     margin: '3rem auto',
+    border: '1.5px solid #e05e7c',
   },
 };
 
