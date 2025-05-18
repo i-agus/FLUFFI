@@ -56,8 +56,8 @@ const AdminDashboard = () => {
     <div className="admin-dashboard-container fancy-bg">
       <div className="admin-dashboard-topbar">
         <div className="admin-dashboard-logo">
-          <img src="/images/icons/logo.png" alt="Fluffi Logo" className="fluffi-logo" />
-          <span className="fluffi-title">FLUFFI Admin</span>
+          <img src="/images/icons/logo.png" alt="furever Logo" className="furever-logo" />
+          <span className="furever-title">FUREVER Admin</span>
         </div>
         <div className="admin-dashboard-user">
           <FaUserCircle size={32} color="#0cc0df" style={{marginRight: 8}} />

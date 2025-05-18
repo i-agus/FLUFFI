@@ -44,7 +44,7 @@ function App() {
             {!enteredSite ? (
               <div className="splash-screen">
                 <div className="splash-content">
-                  <h1>Welcome to FLUFFI</h1>
+                  <h1>Welcome to FUREVER</h1>
                   <p>Find Your Perfect Pet Companion</p>
                   <button onClick={handleEnterClick} className="enter-btn">Enter</button>
                 </div>

@@ -60,7 +60,7 @@ db["admins"].delete_many({})
 db["admins"].insert_one({
     "username": "admin",
     "password": "admin123",  # In production, hash this!
-    "email": "admin@fluffi.com"
+    "email": "admin@furever.com"
 })
 
 # Insert pets

@@ -28,8 +28,8 @@ const NavBar = () => {
     <nav className="navbar-fancy">
       <div className="navbar-container">
         <Link to="/" className="navbar-logo">
-          <img src="/images/icons/logo.png" alt="Fluffi Logo" className="navbar-logo-img" />
-          <span className="navbar-logo-text">FLUFFI</span>
+          <img src="/images/icons/logo.png" alt="furever Logo" className="navbar-logo-img" />
+          <span className="navbar-logo-text">FUREVER</span>
         </Link>
         <div className="navbar-links">
           <Link to="/" className="navbar-link">Home</Link>

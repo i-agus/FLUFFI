@@ -16,11 +16,11 @@ const Contact = () => {
             </div>
             <div className="contact-item email">
               <img src="/images/contactpage_photos/gmail.png" alt="Gmail" />
-              <span>contact@fluffi.com</span>
+              <span>contact@furever.com</span>
             </div>
             <div className="contact-item linkedin">
               <img src="/images/contactpage_photos/linkedin.png" alt="LinkedIn" />
-              <span>Fluffi Pet Adoption</span>
+              <span>Furever Pet Adoption</span>
             </div>
             <div className="contact-item phone">
               <img src="/images/contactpage_photos/phone.png" alt="Phone" />

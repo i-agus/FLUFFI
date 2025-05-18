@@ -10,9 +10,9 @@ const Home = () => {
     <div className="home-page">
       <div style={styles.hero}>
         <div style={styles.heroContent}>
-          <h1 style={styles.title}>Welcome to Fluffi</h1>
+          <h1 style={styles.title}>Welcome to furever</h1>
           <p style={styles.subtitle}>
-            At Fluffi, we love helping people connect with pets who need a home.
+            At furever, we love helping people connect with pets who need a home.
             Join our community and make a difference, because every pet deserves a loving home.
           </p>
           <div style={styles.buttons}>

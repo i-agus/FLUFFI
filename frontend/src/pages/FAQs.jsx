@@ -3,8 +3,8 @@ import './FAQs.css';
 
 const questions = [
   {
-    question: "What is Fluffi?",
-    answer: "Fluffi is a pet adoption platform that connects loving families with pets from shelters and rescues.",
+    question: "What is Furever?",
+    answer: "Furever is a pet adoption platform that connects loving families with pets from shelters and rescues.",
   },
   {
     question: "How do I adopt a pet?",
@@ -20,11 +20,11 @@ const questions = [
   },
   {
     question: "How do you ensure the pets are healthy?",
-    answer: "All pets listed on Fluffi are checked by veterinarians and are vaccinated, dewormed, and treated if needed before being listed.",
+    answer: "All pets listed on Furever are checked by veterinarians and are vaccinated, dewormed, and treated if needed before being listed.",
   },
   {
     question: "Do you support foster care?",
-    answer: "Yes! Fluffi supports fostering programs and works with shelters that encourage temporary care before full adoption.",
+    answer: "Yes! Furever supports fostering programs and works with shelters that encourage temporary care before full adoption.",
   },
   {
     question: "Can I adopt more than one pet?",
@@ -32,10 +32,10 @@ const questions = [
   },
   {
     question: "Are your services available internationally?",
-    answer: "Currently, Fluffi operates within specific regions. We are working to expand our services to new areas soon.",
+    answer: "Currently, Furever operates within specific regions. We are working to expand our services to new areas soon.",
   },
   {
-    question: "How can shelters list pets on Fluffi?",
+    question: "How can shelters list pets on Furever?",
     answer: "Shelters can register with us as partners and get access to their own dashboard for uploading pet profiles, managing applications, and communicating with adopters.",
   }
 ];

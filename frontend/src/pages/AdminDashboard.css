@@ -47,7 +47,7 @@
   align-items: center;
   gap: 0.7rem;
 }
-.fluffi-logo {
+.furever-logo {
   width: 48px;
   height: 48px;
   border-radius: 12px;
@@ -55,7 +55,7 @@
   background: #fff;
   object-fit: contain;
 }
-.fluffi-title {
+.furever-title {
   font-size: 2rem;
   font-weight: 700;
   color: #e05e7c;
@@ -323,7 +323,7 @@
   .admin-dashboard-stat-card {
     padding: 1.2rem 0.7rem;
   }
-  .fluffi-title {
+  .furever-title {
     font-size: 1.3rem;
   }
   .admin-dashboard-table th, .admin-dashboard-table td {
